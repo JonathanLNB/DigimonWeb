@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </head>
+    <body>
+      <div class="container">
+          <div class="row">
+              {% for digimon in principales %}
+              <div class="col s12 m4">
+                  <div class="card medium">
+                      <div class="card-image" >
+                          <img src="{{digimon.img}}" >
+                      </div>
+                      <div class="card-content ">
+                          <span class="card-title">{{digimon.name}}</span>
+                          <i class="material-icons right">{{digimon.level}}</i>
+                      </div>
+                  </div>
+              </div>
+              {% empty %}
+                Nothing found
+              {% endfor %}
+            </div>
+        <div class="row">
+            <table>
+                <thead>
+                  <tr>
+                      <th>Nombre</th>
+                      <th>Nivel</th>
+                      <th>Imagen</th>
+                  </tr>
+                </thead>
+        
+                <tbody>
+                    {% for digimon in digimons %}
+                  <tr>
+                    <td>{{digimon.name}}</td>
+                    <td>{{digimon.level}}</td>
+                    <td><a href="{{digimon.img}}"  target="_blank">{{digimon.img}}</a></td>
+                  </tr>
+                  {% empty %}
+                    Nothing found
+                  {% endfor %}
+                </tbody>
+              </table>
+        </div>
+      </div>
+    </body>
+</html>
